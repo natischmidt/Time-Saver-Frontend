@@ -45,18 +45,33 @@ export default function App() {
                         let f = moment.utc(diff).format("HH:mm:ss.SSS");
                         setDiff(f);
                     }, 1000);
-                    setTimer(timer);
                     //error here WIP
                 }}
             >
                 start
             </button>
             <button onClick={() => clearInterval(timer)}>stop</button>
-            <button onClick={() => {Requests}}>Show all</button>
+            <button onClick={() => {SavedTimes}}>Show all</button>
             <p>{diff}</p>
         </div>
     );
 
+
+}
+function SavedTimes(this: any) {
+    fetch('http://localhost:8080/api/times')
+        .then(response => response.json())
+        .then(data => this.setState({ totalReactPackages: data.total }));
+
+
+        return (
+            <div className="card text-center m-3">
+                <h5 className="card-header">GET Request</h5>
+                <div className="card-body">
+
+                </div>
+            </div>
+        );
 
 }
 
