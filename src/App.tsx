@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react'
 import moment from "moment";
+import {Requests} from "./components/Requests";
 
 import './App.css'
 
@@ -51,8 +52,14 @@ export default function App() {
                 start
             </button>
             <button onClick={() => clearInterval(timer)}>stop</button>
+            <button onClick={() => {Requests}}>Show all</button>
             <p>{diff}</p>
         </div>
     );
+
+
 }
+
+
+
 //export default App;
