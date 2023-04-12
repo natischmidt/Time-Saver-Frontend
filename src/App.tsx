@@ -5,9 +5,12 @@ import moment from "moment";
 import './App.css'
 
 export default function App() {
+
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState();
+    //empty array to store the times
+    const [savedTime, setSavedTime] = useState([]);
 
     return (
         <div className="App">
