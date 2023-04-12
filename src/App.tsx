@@ -8,7 +8,7 @@ export default function App() {
 
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
-    const [timer, setTimer] = useState();
+    const [timer, setTimer] = useState<any | null>(null);
     const [savedTime, setSavedTime] = useState([]);
 
     useEffect(() => {
@@ -32,13 +32,14 @@ export default function App() {
                         let f = moment.utc(diff).format("HH:mm:ss.SSS");
                         setDiff(f);
                     }, 1000);
-                    //error here WIP
+                    setTimer(timer);
+//error fixed was always passing null value ands top diddnt work
                 }}
             >
                 start
             </button>
+
             <button onClick={() => clearInterval(timer)}>stop</button>
-            {/*<button onClick={() => {SavedTimes}}>Show all</button>*/}
             <p>{diff}</p>
         </div>
     );
