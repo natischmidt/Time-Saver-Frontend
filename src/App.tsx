@@ -9,14 +9,16 @@ export default function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState();
-    //empty array to store the times
     const [savedTime, setSavedTime] = useState([]);
 
     useEffect(() => {
+     fetch('http://localhost:8080/times')
+         .then(response => response.json())
+         .then(data => console.log(data))
 
-
-    })
-    //no array dependency because i want it to always fetch as soon as component is loaded to fetch saved timess
+        //fetch to api working this is for testing purposes
+    },[])
+    //no array dependency because i want it to always fetch as soon as component is loaded to fetch saved timess?
 
     return (
         <div className="App">
