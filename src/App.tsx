@@ -12,6 +12,12 @@ export default function App() {
     //empty array to store the times
     const [savedTime, setSavedTime] = useState([]);
 
+    useEffect(() => {
+
+
+    })
+    //no array dependency because i want it to always fetch as soon as component is loaded to fetch saved timess
+
     return (
         <div className="App">
             <button
