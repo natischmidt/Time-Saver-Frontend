@@ -10,42 +10,45 @@ export default function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState<any | null>(null);
-    const [savedTime, setSavedTime] = useState([]);
+    // const [savedTime, setSavedTime] = useState([]);
 
-    useEffect(() => {
-        const Fetch = () => {
-            const [savedtimes, setTimes] = useState<any[]>([])
 
-            type UUID = string;
 
-            const fetchData = () => {
-                fetch("http://localhost:8080/times")
-                    .then(response => {
-                        return response.json()
-                    })
-                    .then(data => {
-                        setTimes(data)
-                    })
-            }
-
-            useEffect(() => {
-                fetchData()
-            }, [])
-
-            return (
-                <div>
-                    {savedtimes.length > 0 && (
-                        <ul>
-                            {savedtimes.map(savedtimes => (
-                                <li key={savedtimes.UUID}>{savedtimes.number}</li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-            )
-        }
-        //fetch to api working this is for testing purposes
-    },[])
+    //
+    // useEffect(() => {
+    //     const Fetch = () => {
+    //         const [savedtimes, setTimes] = useState<any[]>([])
+    //
+    //         type UUID = string;
+    //
+    //         const fetchData = () => {
+    //             fetch("http://localhost:8080/times")
+    //                 .then(response => {
+    //                     return response.json()
+    //                 })
+    //                 .then(data => {
+    //                     setTimes(data)
+    //                 })
+    //         }
+    //
+    //         useEffect(() => {
+    //             fetchData()
+    //         }, [])
+    //
+    //         return (
+    //             <div>
+    //                 {savedtimes.length > 0 && (
+    //                     <ul>
+    //                         {savedtimes.map(savedtimes => (
+    //                             <li key={savedtimes.UUID}>{savedtimes.number}</li>
+    //                         ))}
+    //                     </ul>
+    //                 )}
+    //             </div>
+    //         )
+    //     }
+    //     //fetch to api working this is for testing purposes
+    // },[])
     //no array dependency because i want it to always fetch as soon as component is loaded to fetch saved timess?
 
     return (
@@ -68,30 +71,7 @@ export default function App() {
             <button onClick={() => clearInterval(timer)}>Stop</button>
             {/*//<button onClick={() => ()}> Save</button>*/}
             {/*//<button onClick={() => ()}> Show all</button>*/}
-            <button
-                onClick={() => {
-                    const [savedtimes, setTimes] = useState<any[]>([])
-                    fetch("http://localhost:8080/times")
-                        .then(response => {
-                            return response.json()
-                        })
-                        .then(data => {
-                            setTimes(data)
-                        })
-                    return (
-                        <div>
-                            {savedtimes.length > 0 && (
-                                <ul>
-                                    {savedtimes.map(savedtimes => (
-                                        <li key={savedtimes.UUID}>{savedtimes.number}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    )
-                }}
-            >Show all
-            </button>
+            <button onClick={Fetch}>Fetch data</button>
             <p>{diff}</p>
         </div>
     );
