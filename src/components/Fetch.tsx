@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-const Fetch = () => {
+export const Fetch = () => {
     const [savedtimes, setTimes] = useState<any[]>([])
 
     type UUID = string;
@@ -32,4 +32,3 @@ const Fetch = () => {
     )
 }
 
-export default Fetch

@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import moment from "moment";
-import Fetch from "./components/Fetch";
+import {Fetch} from "./components/Fetch";
 
 
 import './App.css'
@@ -64,14 +64,13 @@ export default function App() {
                         setDiff(f);
                     }, 1000);
                     setTimer(timer);
-//error fixed was always passing null value ands top diddnt work
+                //error fixed was always passing null value ands top diddnt work
                 }}
             >Start
             </button>
             <button onClick={() => clearInterval(timer)}>Stop</button>
             {/*//<button onClick={() => ()}> Save</button>*/}
-            {/*//<button onClick={() => ()}> Show all</button>*/}
-            <button onClick={Fetch}>Fetch data</button>
+            <button onClick={Fetch}>Show all</button>
             <p>{diff}</p>
         </div>
     );
