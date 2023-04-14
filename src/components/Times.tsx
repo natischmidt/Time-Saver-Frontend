@@ -14,7 +14,7 @@ const Times = () => {
 
 
     useEffect(() => {
-        axios.get<Time[]>('http://localhost:8080/times')
+        axios.get<Time[]>('http://localhost:8080/timer/times')
             .then(res => {
                 setTimes(res.data);
                 times.map(time => console.log(time))
