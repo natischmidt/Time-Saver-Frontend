@@ -31,7 +31,7 @@ const Watch = ({Saved}: Time) => {
             >Start
             </button>
             <button onClick={() => clearInterval(timer)}>Stop</button>
-            {/*//<button onClick={() => (handleSumbit)}> Save</button>*/}
+            <button onClick={() => (Saved)}> Save</button>
             {/*<button onClick={Times}>Show all</button>*/}
             <p>{diff}</p>
 
