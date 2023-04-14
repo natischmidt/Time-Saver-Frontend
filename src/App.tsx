@@ -10,9 +10,33 @@ export default function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState<any | null>(null);
+    const [time, setSavedTime] = useState <Time[]>([])
+    const [error, setError] = useState({})
 
 
-    // const [savedTime, setSavedTime] = useState([]);
+    interface Time {
+         UUID: string;
+         time: number;
+         saved: boolean;
+     }
+
+    const handleSubmit = (value: number) => {
+        setSavedTime([...time, {UUID: value, time:value }])
+        //wip
+    }
+    useEffect(() => {
+        fetch('http://localhost:8080/times')
+            .then(response => response.json())
+            .then(res => setSavedTime)
+            .catch(e => setError(e))
+    }, [])
+    return (
+        <div className="App">
+
+
+        </div>
+    );
+
 
 
     return (
@@ -42,23 +66,3 @@ export default function App() {
 }
 
 
-// function SavedTimes(this: any) {
-//     fetch('http://localhost:8080/api/times')
-//         .then(response => response.json())
-//         .then(data => this.setState({ totalReactPackages: data.total }));
-//
-//
-//         return (
-//             <div className="card text-center m-3">
-//                 <h5 className="card-header">GET Request</h5>
-//                 <div className="card-body">
-//
-//                 </div>
-//             </div>
-//         );
-//
-// }
-
-
-
-//export default App;
