@@ -14,28 +14,12 @@ export default function App() {
     const [error, setError] = useState({})
 
 
-    interface Time {
-         UUID: string;
-         time: number;
-         saved: boolean;
-     }
+    // interface Time {
+    //      UUID: string;
+    //      time: number;
+    //      saved: boolean;
+    //  }
 
-    const handleSubmit = (value: number) => {
-        setSavedTime([...time, {UUID: value, time:value }])
-        //wip
-    }
-    useEffect(() => {
-        fetch('http://localhost:8080/times')
-            .then(response => response.json())
-            .then(res => setSavedTime)
-            .catch(e => setError(e))
-    }, [])
-    return (
-        <div className="App">
-
-
-        </div>
-    );
 
 
 
@@ -57,7 +41,7 @@ export default function App() {
             >Start
             </button>
             <button onClick={() => clearInterval(timer)}>Stop</button>
-            {/*//<button onClick={() => ()}> Save</button>*/}
+            {/*//<button onClick={() => (handleSumbit)}> Save</button>*/}
             {/*<button onClick={Times}>Show all</button>*/}
             <p>{diff}</p>
         </div>
