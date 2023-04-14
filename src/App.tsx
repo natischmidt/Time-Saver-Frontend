@@ -9,19 +9,25 @@ export default function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState<any | null>(null);
-    const [savedtimes, setTimes] = useState<any[]>([])
+
     // const [savedTime, setSavedTime] = useState([]);
 
-    const Fetch = () => {
+    function Fetch ()  {
+        const [savedtimes, setTimes] = useState<any[]>([])
+        useEffect(() => {
+            fetchData()
+        }, [])
         type UUID = string;
+        const fetchData = () =>
+            fetch("http://localhost:8080/times")
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    (setTimes(data))
+                    console.log(savedtimes)
+                })
 
-        fetch("http://localhost:8080/times")
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                setTimes(data)
-            })
 
         return (
             <div>
