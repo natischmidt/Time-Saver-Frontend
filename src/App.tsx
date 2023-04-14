@@ -1,6 +1,5 @@
 import React, {useEffect,useState} from 'react'
 import moment from "moment";
-import {Fetch} from "./components/Fetch";
 
 
 import './App.css'
@@ -10,45 +9,35 @@ export default function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [diff, setDiff] = useState("00:00:00");
     const [timer, setTimer] = useState<any | null>(null);
+    const [savedtimes, setTimes] = useState<any[]>([])
     // const [savedTime, setSavedTime] = useState([]);
 
+    const Fetch = () => {
+        type UUID = string;
 
+        fetch("http://localhost:8080/times")
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                setTimes(data)
+            })
 
-    //
-    // useEffect(() => {
-    //     const Fetch = () => {
-    //         const [savedtimes, setTimes] = useState<any[]>([])
-    //
-    //         type UUID = string;
-    //
-    //         const fetchData = () => {
-    //             fetch("http://localhost:8080/times")
-    //                 .then(response => {
-    //                     return response.json()
-    //                 })
-    //                 .then(data => {
-    //                     setTimes(data)
-    //                 })
-    //         }
-    //
-    //         useEffect(() => {
-    //             fetchData()
-    //         }, [])
-    //
-    //         return (
-    //             <div>
-    //                 {savedtimes.length > 0 && (
-    //                     <ul>
-    //                         {savedtimes.map(savedtimes => (
-    //                             <li key={savedtimes.UUID}>{savedtimes.number}</li>
-    //                         ))}
-    //                     </ul>
-    //                 )}
-    //             </div>
-    //         )
-    //     }
-    //     //fetch to api working this is for testing purposes
-    // },[])
+        return (
+            <div>
+                {savedtimes.length > 0 && (
+                    <ul>
+                        {savedtimes.map(savedtimes => (
+                            <li key="{savedtimes}"> {savedtimes.UUID}
+                                {savedtimes.UUID}
+                                </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+        )
+    }
+    //fetch to api working this is for testing purposes
     //no array dependency because i want it to always fetch as soon as component is loaded to fetch saved timess?
 
     return (
@@ -64,7 +53,7 @@ export default function App() {
                         setDiff(f);
                     }, 1000);
                     setTimer(timer);
-                //error fixed was always passing null value ands top diddnt work
+                    //error fixed was always passing null value ands top diddnt work
                 }}
             >Start
             </button>
@@ -75,8 +64,9 @@ export default function App() {
         </div>
     );
 
-
 }
+
+
 // function SavedTimes(this: any) {
 //     fetch('http://localhost:8080/api/times')
 //         .then(response => response.json())
