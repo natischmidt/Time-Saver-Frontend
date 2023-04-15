@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 interface Time {
-    UUID: string,
+    id: number,
     time: number
 }
 

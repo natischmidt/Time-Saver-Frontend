@@ -26,7 +26,6 @@ const Watch = ({Saved}: Time) => {
                         setDiff(f);
                     }, 1000);
                     setTimer(timer);
-                    //error fixed was always passing null value ands top diddnt work
                 }}
             >Start
             </button>
