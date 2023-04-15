@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 interface Time {
 
-    Saved: (UUID: string, time:number) => void;
+    Saved: (id: number, time:number) => void;
 }
 
 
@@ -22,7 +22,7 @@ const Watch = ({Saved}: Time) => {
                         let start = moment(startDate);
                         let end = moment(new Date());
                         let diff = end.diff(start);
-                        let f = moment.utc(diff).format("HH:mm:ss.SSS");
+                        let f = moment.utc(diff).format("HH:mm:ss");
                         setDiff(f);
                     }, 1000);
                     setTimer(timer);
@@ -30,8 +30,11 @@ const Watch = ({Saved}: Time) => {
                 }}
             >Start
             </button>
+
             <button onClick={() => clearInterval(timer)}>Stop</button>
-            <button onClick={() => (console.log(Saved))}> Save</button>
+            <button onClick={() => {
+                Saved(0,timer);
+            }}>Save</button>
             {/*<button onClick={Times}>Show all</button>*/}
             <p>{diff}</p>
 

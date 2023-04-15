@@ -13,8 +13,9 @@ const Times = () => {
     const [savedTime, setSavedTime] = useState(false);
 
 
+
     useEffect(() => {
-        axios.get<Time[]>('http://localhost:8080/timer/times')
+        axios.get<Time[]>('http://localhost:8080/timer')
             .then(res => {
                 setTimes(res.data);
                 times.map(time => console.log(time))
