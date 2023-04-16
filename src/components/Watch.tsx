@@ -16,9 +16,6 @@ const Watch = ({Saved}: Time) => {
     const [isPaused, setIsPaused] = useState(true);
     const [time, setTime] = useState(0);
 
-    // const [startDate, setStartDate] = useState(new Date());
-    // const [diff, setDiff] = useState("00:00:00");
-    // const [timer, setTimer] = useState<any | null>(null);
 
     React.useEffect(() => {
         let interval: any = null;
@@ -49,6 +46,14 @@ const Watch = ({Saved}: Time) => {
         setTime(0);
     };
 
+    const handleSave = () => {
+        setIsActive(false);
+        console.log(time);
+        //working
+
+    }
+
+
     return (
         <div className="stop-watch">
             <Timer time={time} />
@@ -58,6 +63,7 @@ const Watch = ({Saved}: Time) => {
                 handleStart={handleStart}
                 handlePauseResume={handlePauseResume}
                 handleReset={handleReset}
+                handleSave={handleSave}
             />
         </div>
     );
