@@ -5,7 +5,6 @@ interface Time {
     id: number,
     time: number
 }
-
 const Times = () => {
 
     const [error, setError] = useState('')
