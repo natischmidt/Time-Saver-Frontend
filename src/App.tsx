@@ -27,8 +27,7 @@ export default function App() {
     return (
         <div className="App">
             <Watch Saved={(id, time) => Saved(id, time)}></Watch>
-            <List
-                times={times} Delete={(id) => Deleted(id)}></List>
+            <List times={times} Delete={(id) => Deleted(id)}></List>
         </div>
     );
 

@@ -7,7 +7,7 @@ export default function Buttons(props: {
         | undefined; isPaused: any; active: any; handleSave: any; showList: any; }) {
 
     const StartBtn = (
-        <div className="btn btn-one btn-start"
+        <div className="btn-start"
              onClick={props.handleStart}>
             Start
         </div>
@@ -15,23 +15,22 @@ export default function Buttons(props: {
 
     const ActiveBtns = (
         <div className="btn-btn">
-            <div className="btn btn-reset"
+            <div className="btn-reset"
                  onClick={props.handleReset}>
                 Reset
             </div>
-            <div className="btn btn-pause"
+            <div className="btn-pause"
                  onClick={props.handlePauseResume}>
                 {props.isPaused ? "Resume" : "Pause"}
             </div>
-            <div className="btn btn-save"
+            <div className="btn-save"
                  onClick={props.handleSave}>
                 Save
             </div>
-            <div className="btn btn-list"
+            <div className="btn-list"
                  onClick={props.showList}>
                 Show All
             </div>
-
         </div>
     );
 

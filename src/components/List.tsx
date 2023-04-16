@@ -20,8 +20,7 @@ const List = ({times, Delete}: Times) => {
             <ul>
                 <tbody>
                 {times.map(time =>
-                    <tr key={time.id}
-                        className='test'>
+                    <tr key={time.id}>
                         <td>{(time.time)}</td>
                         <td>
                             <button
@@ -32,10 +31,8 @@ const List = ({times, Delete}: Times) => {
                     </tr>)}
                 </tbody>
             </ul>
-
                     </>
     );
-
 
 }
 
