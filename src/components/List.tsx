@@ -15,16 +15,10 @@ const List = ({times, Delete}: Times) => {
     if (times.length === 0) return null;
     return (
 
-
         <button
-            className="btn btn-outline-danger"
-            onClick={() => Delete(times.)}
+           // onClick={() => Delete(times.)}
         >Delete
         </button>
-
-
-
-
 
     );
 
