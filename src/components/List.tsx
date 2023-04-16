@@ -13,13 +13,27 @@ interface Times {
 const List = ({times, Delete}: Times) => {
 
     if (times.length === 0) return null;
+
     return (
+        <>
+        <h1> Times </h1>
+            <ul>
+                <tbody>
+                {times.map(time =>
+                    <tr key={time.id}
+                        className='test'>
+                        <td>{(time.time)}</td>
+                        <td>
+                            <button
+                                onClick={() => Delete(time.id)}
+                            >Delete
+                            </button>
+                        </td>
+                    </tr>)}
+                </tbody>
+            </ul>
 
-        <button
-           // onClick={() => Delete(times.)}
-        >Delete
-        </button>
-
+                    </>
     );
 
 

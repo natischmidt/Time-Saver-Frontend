@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import Buttons from "./Buttons";
 import Timer from "./Timer";
+import List from "./List";
 
 
 interface Time {
@@ -49,9 +50,14 @@ const Watch = ({Saved}: Time) => {
     const handleSave = () => {
         setIsActive(false);
         console.log(time);
+        Saved(0,time)
         //working
-
     }
+
+    const showList = () => {
+        setIsActive(false);
+    }
+
 
 
     return (
@@ -64,6 +70,7 @@ const Watch = ({Saved}: Time) => {
                 handlePauseResume={handlePauseResume}
                 handleReset={handleReset}
                 handleSave={handleSave}
+                showList={showList}
             />
         </div>
     );
