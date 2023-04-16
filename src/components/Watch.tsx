@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import Buttons from "./Buttons";
 import Timer from "./Timer";
-import List from "./List";
+
 
 
 interface Time {

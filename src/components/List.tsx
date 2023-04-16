@@ -1,4 +1,5 @@
 import React from 'react';
+import {Rendering} from "./Rendering";
 
 interface Time {
     id: number,
@@ -21,7 +22,9 @@ const List = ({times, Delete}: Times) => {
                 <tbody>
                 {times.map(time =>
                     <tr key={time.id}>
-                        <td>{(time.time)}</td>
+                        <td>{
+                            Rendering(time.time)
+                        }</td>
                         <td>
                             <button
                                 onClick={() => Delete(time.id)}
