@@ -1,8 +1,8 @@
 import moment from "moment/moment";
 import React, {useState} from "react";
 
-interface Time {
 
+interface Time {
     Saved: (id: number, time:number) => void;
 }
 
@@ -32,7 +32,7 @@ const Watch = ({Saved}: Time) => {
 
             <button onClick={() => clearInterval(timer)}>Stop</button>
             <button onClick={() => {
-                Saved(0,timer);
+               //wipp its not being saved corret
             }}>Save</button>
             {/*<button onClick={Times}>Show all</button>*/}
             <p>{diff}</p>

@@ -12,6 +12,11 @@ export default function App() {
     const Update = () => setSavedTime(!savedTime);
     const {times, error, setError, savedTime, setSavedTime} = Times();
 
+    const Deleted = (id: number) => {
+        axios.delete('http://localhost:8080/timer/delete/' + id)
+            .then(() => Update())
+            .catch((err) => setError(err.message));
+    }
     const Saved = (id: number, time: number) => {
         axios.post('http://localhost:8080/timer', {id, time})
             .then(() => Update())
